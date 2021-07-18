@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e110a1b9-123b-4b36-8eab-ef4418dd3a10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/accounts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/amount.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/coin.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/mempool.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/transactions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain/crypto/hashing.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain/interfaces/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/interfaces/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/wallet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/interfaces/transactions.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/transactions.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +27,7 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1vTP88BSR3Dc7sLoiyHmKVlmdut" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,33 +40,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/numbers/uint256" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/numbers/uint256" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="regalcoin" />
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="regalcoin" />
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +61,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
