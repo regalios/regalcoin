@@ -41,9 +41,6 @@ type Wallet struct {
 
 }
 
-type Coin struct {
-
-}
 
 type Outpoint struct {
 	IOutpoint
@@ -59,10 +56,4 @@ type IOutpoint interface {
 	ToString() string
 }
 
-type TxIn struct {
-	PrevOut Outpoint
-	ScriptSig string
-	Sequence uint32
-	ScriptWitness []byte
-}
 
