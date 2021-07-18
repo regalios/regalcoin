@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e110a1b9-123b-4b36-8eab-ef4418dd3a10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/interfaces/blockchain.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/AUTHORS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/COPYING" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/benchmarks_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/circle.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/codecov.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/conversion.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/conversion_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/div.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/fuzz.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/uint256.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/uint256_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/node.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,5 +84,16 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/numbers/uint256/uint256_test.go</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

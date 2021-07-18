@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/regalios/regalcoin/cmd"
+import "regalcoin/src/cmd"
 
 func main() {
 	cmd.Execute()
