@@ -1,75 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
-  </component>
-  <component name="CMakeSettings">
-    <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
-    </configurations>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4b7cdd4-cca9-4905-937c-04ce970b9e38" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    <list default="true" id="e110a1b9-123b-4b36-8eab-ef4418dd3a10" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/interfaces/blockchain.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/AUTHORS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/benchmarks_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/circle.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/codecov.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/conversion.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/conversion_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/div.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/fuzz.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/uint256.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/numbers/uint256/uint256_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MacroExpansionManager">
-    <option name="directoryName" value="coq4xdd0" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProjectId" id="1vS7wTiKauh2w8AULotYLm3Pu2E" />
+  <component name="ProjectId" id="1vTP88BSR3Dc7sLoiyHmKVlmdut" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/numbers/uint256" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/numbers/uint256" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="regalcoin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="regalcoin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d4b7cdd4-cca9-4905-937c-04ce970b9e38" name="Default Changelist" comment="" />
-      <created>1626543874316</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1626543874316</updated>
-      <workItem from="1626543875514" duration="4187000" />
-    </task>
-    <servers />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -83,5 +92,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
   </component>
 </project>
