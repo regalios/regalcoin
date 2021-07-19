@@ -1,11 +1,11 @@
 package interfaces
 
 import (
-	"io"
+	"github.com/libp2p/go-libp2p-core/network"
 	"regalcoin/chain/numbers/uint256"
 )
 
-type Blockchain interface {
+type IBlockchain interface {
 	GetHeight() uint64
 	GetBlockHeight(hash uint256.Int) uint64
 	GetBlockDepth(hash uint256.Int) uint64
@@ -20,11 +20,13 @@ type Blockchain interface {
 	IsPotentialTip(hash uint256.Int) bool
 	GetTipLocator() interface{}
 	FindBlock(hash uint256.Int)
+	GetGenesis()
+
 }
 
 type IBlockHeader interface {
 	SetNull()
-	Serialization(reader io.ReadWriteCloser, op string)
+	Serialization(stream network.Stream, op string)
 	IsNull() bool
 	GetHash() uint256.Int
 	GetPowHash() uint256.Int
@@ -49,6 +51,18 @@ type IBlock interface {
 
 type IBlockLocator interface {
 	SetNull()
-	Serialization(reader io.ReadWriteCloser, op string)
+	Serialization(stream network.Stream, op string)
 	IsNull() bool
+}
+
+type RegalChain struct {
+
+	IBlockchain
+	Version uint32
+	ChainID string
+	Genesis string
+	LastHeight uint64
+
+
+
 }

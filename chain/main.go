@@ -15,8 +15,11 @@ limitations under the License.
 */
 package main
 
-import "regalcoin/chain/cmd"
+import "github.com/regalios/regalcoin/network"
 
 func main() {
-	cmd.Execute()
+
+
+	network.CreateNetwork("")
+	//cmd.Execute()
 }

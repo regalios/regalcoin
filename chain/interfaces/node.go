@@ -1,11 +1,13 @@
 package interfaces
 
 import (
+	"github.com/libp2p/go-libp2p-core/protocol"
 	"net"
-
 )
 
 type INode interface {
+	Create(peerAddr string)
+	SetHandlers(protocol.ID)
 	SelectParams(network string)
 	GetAssumedBlockchainSize() uint64
 	GetAssumedChainStateSize() uint64
