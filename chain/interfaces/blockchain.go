@@ -37,6 +37,8 @@ type RegalChain struct {
 	LastHeight uint64
 	SuperValidators []string
 	Validators []*Validator
+	Blocks map[string]*Block
+	BlockCandidates []*Block
 
 }
 

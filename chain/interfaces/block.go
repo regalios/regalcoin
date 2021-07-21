@@ -2,13 +2,14 @@ package interfaces
 
 import (
 	"encoding/json"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/dgraph-io/badger/v3"
+	"github.com/google/uuid"
 	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/regalios/regalcoin/crypto"
 	log "github.com/sirupsen/logrus"
 	"regalcoin/chain/numbers"
 	"time"
-	"github.com/davecgh/go-spew/spew"
 )
 
 
@@ -62,7 +63,7 @@ type GenesisBlock struct {
 	GenesisTime int64
 }
 
-func (g GenesisBlock) Create() *GenesisBlock {
+func (g GenesisBlock) Create(chain *RegalChain) *GenesisBlock {
 
 	genesis := new(GenesisBlock)
 	genesis.b = new(Block)
@@ -90,12 +91,8 @@ func (g GenesisBlock) Create() *GenesisBlock {
 
 	genesis.b.Size = len(ser[:])
 
-	/*err := genesis.AddToQueue()
-	if err != nil {
-		panic(err)
-	}*/
-	spew.Dump(genesis)
-	spew.Dump(ser)
+	chain.BlockCandidates = append(chain.BlockCandidates, genesis.b)
+
 
 	return genesis
 
@@ -188,9 +185,24 @@ func (q BlockQueue) ProcessBlocks() error {
 }
 
 func init() {
-	bq := new(BlockQueue)
-	bq.GetInstance()
+
+	chain := new(RegalChain)
+	chain.ChainID = uuid.New().String()
+	chain.BlockCandidates = make([]*Block, 0)
+
+
+
 	 g := new(GenesisBlock)
-	 g.Create()
+	g.Create(chain)
+	 blockHead := chain.BlockCandidates[0]
+	 if blockHead.Index == 0 {
+	 	chain.Blocks = make(map[string]*Block)
+	 	blockHash := chain.BlockCandidates[0].Hash.String()
+	 	chain.Blocks[blockHash] =  chain.BlockCandidates[0]
+	 	chain.BlockCandidates[0] = nil
+	 	chain.Genesis = blockHash
+	 }
+
+	 spew.Dump(chain)
 
 }
