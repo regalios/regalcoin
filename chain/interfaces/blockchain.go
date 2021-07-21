@@ -1,7 +1,6 @@
 package interfaces
 
 import (
-	"github.com/libp2p/go-libp2p-core/network"
 	"regalcoin/chain/numbers/uint256"
 )
 
@@ -19,41 +18,15 @@ type IBlockchain interface {
 	FindFork(hash uint256.Int, height int) int
 	IsPotentialTip(hash uint256.Int) bool
 	GetTipLocator() interface{}
+	GetHead() *Block
 	FindBlock(hash uint256.Int)
+	GetBlocks() []*Block
 	GetGenesis()
-
+	GetSuperValidator(address string) (error, *SuperValidator)
+	GetValidators() (error, []*Node)
+	GenerateNewBlock(Validator *Node)
 }
 
-type IBlockHeader interface {
-	SetNull()
-	Serialization(stream network.Stream, op string)
-	IsNull() bool
-	GetHash() uint256.Int
-	GetPowHash() uint256.Int
-	GetBlockTime() int64
-
-}
-
-type BlockHeader struct {
-	Version uint16
-	HashPrevBlock uint256.Int
-	HashMerkleRoot uint256.Int
-	Timestamp int64
-	Bits uint32
-	Nonce uint32
-}
-
-type IBlock interface {
-	IBlockHeader
-	GetBlockHeader() BlockHeader
-	ToString() string
-}
-
-type IBlockLocator interface {
-	SetNull()
-	Serialization(stream network.Stream, op string)
-	IsNull() bool
-}
 
 type RegalChain struct {
 
@@ -62,22 +35,28 @@ type RegalChain struct {
 	ChainID string
 	Genesis string
 	LastHeight uint64
+	SuperValidators []string
+	Validators []*Validator
 
 }
 
-type Block struct {
-	Index uint64
-	Header *BlockHeader
-	Hash *uint256.Int
-	Height uint64
-	Tx []Transaction
-	Payload map[int]string
-	IBlock
+
+type Validator struct {
+	Address string
+	Staked Amount
+	Parent *SuperValidator
 }
 
-type GenesisBlock struct {
-	Block
-	Validators map[uint256.Int]Validator
-	GenesisTime int64
-	
+type SuperValidator struct {
+	Name string
+	Url string
+	Rank int
+	Address string
+	TotalStaked uint256.Int
+	Children []*Validator
+	RewardSettings *ValidatorRewardSettings
+}
+
+type ValidatorRewardSettings struct {
+
 }

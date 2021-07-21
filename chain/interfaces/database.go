@@ -1,9 +1,9 @@
 package interfaces
 
 import (
-	"github.com/syndtr/goleveldb/leveldb"
-	"path/filepath"
- badger "github.com/dgraph-io/badger/v3"
+	"github.com/dgraph-io/badger/v3"
+	"github.com/regalios/regalcoin/config"
+	log "github.com/sirupsen/logrus"
 )
 
 
@@ -22,17 +22,14 @@ type MemDB struct {
 	IDB
 }
 
-const DefaultDBPathPrefix = "data"
-const LocalNetDBPath = "local"
-const TestNetDBPath = "testnet"
-const LiveNetDBPath = "live"
+var localDbPath = config.ChainConfig.Database.Localpath
+var testnetDbPath = config.ChainConfig.Database.Testpath
+var livenetDbPath = config.ChainConfig.Database.Livepath
+var dbFiles = config.ChainConfig.Database.Dbnames
 
-var localDbPath = filepath.Join(DefaultDBPathPrefix, LocalNetDBPath)
-var testnetDbPath = filepath.Join(DefaultDBPathPrefix, TestNetDBPath)
-var livenetDbPath = filepath.Join(DefaultDBPathPrefix, LiveNetDBPath)
-var ldb *badger.DB
-var Storage = ldb
+var DB *badger.DB
 var cacheSize = 1024 << 20
+type Storage struct {}
 
 type IDB interface {
 	GetPath(networkType string) string
@@ -40,22 +37,20 @@ type IDB interface {
 	SetInstance(networkType string) error
 }
 
-func (db *Database) GetInstance(networkType string) {
+func (s *Storage) GetInstance(networkType string) {
 
-	 db.SetInstance(networkType)
-
-	defer ldb.Close()
-
-}
-
-func (db *Database) SetInstance(networkType string) {
-
-	path := db.GetPath(networkType)
-	ldb, _ = leveldb.OpenFile(path, nil)
+	path := s.GetPath(networkType)
+	DB, err := badger.Open(badger.DefaultOptions(path))
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer  DB.Close()
 
 }
 
-func (db *Database) GetPath(networkType string) string {
+
+
+func (s *Storage) GetPath(networkType string) string {
 	switch networkType {
 	case "live":
 		return livenetDbPath
@@ -69,6 +64,6 @@ func (db *Database) GetPath(networkType string) string {
 }
 
 func StartDB(networkType string) {
-	db := new(Database)
+	db := new(Storage)
 	db.GetInstance(networkType)
 }

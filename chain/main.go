@@ -15,9 +15,11 @@ limitations under the License.
 */
 package main
 
-import _ "github.com/regalios/regalcoin/config"
+import "github.com/regalios/regalcoin/interfaces"
 
 func main() {
+
+	interfaces.StartDB("local")
 
 
 	//cmd.Execute()

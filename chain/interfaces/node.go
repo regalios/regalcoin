@@ -1,6 +1,7 @@
 package interfaces
 
 import (
+	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-core/protocol"
 	"net"
 )
@@ -55,7 +56,9 @@ type INode interface {
 	GetWallets() map[int]*Wallet
 	LoadWallet(name string, err string, warnings string) *Wallet
 
+}
 
-
-
+type Node struct {
+	PeerID peer.ID
+	ValidatorAccount *Validator
 }
