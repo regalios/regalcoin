@@ -1,25 +1,25 @@
 package interfaces
 
 import (
-	"regalcoin/chain/numbers/uint256"
+	"regalcoin/chain/numbers"
 )
 
 type IBlockchain interface {
 	GetHeight() uint64
-	GetBlockHeight(hash uint256.Int) uint64
-	GetBlockDepth(hash uint256.Int) uint64
-	GetBlockHash(height int) uint256.Int
+	GetBlockHeight(hash numbers.Uint256) uint64
+	GetBlockDepth(hash numbers.Uint256) uint64
+	GetBlockHash(height int) numbers.Uint256
 	GetBlockTime(height int) int64
 	GetBlockMedianTimePast(height int) int64
 	HaveBlockOnDisk(height int) bool
-	FindFirstBlockWithTime(timestamp int64, hash uint256.Int) int
+	FindFirstBlockWithTime(timestamp int64, hash numbers.Uint256) int
 	FindFirstBlockWithTimeAndHeight(timestamp int64, height int) int
 	FindPruned(start_height, stop_height int) int
-	FindFork(hash uint256.Int, height int) int
-	IsPotentialTip(hash uint256.Int) bool
+	FindFork(hash numbers.Uint256, height int) int
+	IsPotentialTip(hash numbers.Uint256) bool
 	GetTipLocator() interface{}
 	GetHead() *Block
-	FindBlock(hash uint256.Int)
+	FindBlock(hash numbers.Uint256)
 	GetBlocks() []*Block
 	GetGenesis()
 	GetSuperValidator(address string) (error, *SuperValidator)
@@ -52,7 +52,7 @@ type SuperValidator struct {
 	Url string
 	Rank int
 	Address string
-	TotalStaked uint256.Int
+	TotalStaked numbers.Uint256
 	Children []*Validator
 	RewardSettings *ValidatorRewardSettings
 }

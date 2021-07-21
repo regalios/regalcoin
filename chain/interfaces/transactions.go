@@ -1,9 +1,10 @@
 package interfaces
 
 import (
+	"encoding/hex"
 	"fmt"
 	"io"
-	"regalcoin/chain/numbers/uint256"
+	"regalcoin/chain/numbers"
 	"sync"
 )
 
@@ -53,8 +54,8 @@ type Transaction struct {
 	Vout []TxOut
 	Version int32
 	LockTime uint32
-	hash uint256.Int
-	witnessHash uint256.Int
+	hash numbers.Uint256
+	witnessHash numbers.Uint256
 	ITransaction
 }
 
@@ -63,10 +64,10 @@ type ITransaction interface {
 	ConvertMutableToTx() *Transaction
 	Serialize(rw io.ReadWriter)
 	IsNull() bool
-	GetHash() *uint256.Int
-	GetWitnessHash() *uint256.Int
-	ComputeHash() *uint256.Int
-	ComputeWitnessHash() *uint256.Int
+	GetHash() *numbers.Uint256
+	GetWitnessHash() *numbers.Uint256
+	ComputeHash() *numbers.Uint256
+	ComputeWitnessHash() *numbers.Uint256
 	GetValueOut() Amount
 	GetTotalSize() int
 	IsCoinbase() bool
@@ -85,7 +86,7 @@ type MutableTransaction struct {
 }
 
 func (o Outpoint) ToString() string {
-	return fmt.Sprintf("Outpoint(%s, %u)", o.hash.String()[0:10], o.n)
+	return fmt.Sprintf("Outpoint(%s, %u)", hex.EncodeToString(o.hash.Bytes())[0:10], o.n)
 }
 
 func (txin TxIn) Create(prevoutIn Outpoint, scriptSigIn string, SequenceIn uint32) {

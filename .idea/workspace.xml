@@ -2,171 +2,121 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e110a1b9-123b-4b36-8eab-ef4418dd3a10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/block.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/numbers/uint256.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/chain/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/crypto/hashing.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/crypto/hashing.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/data/chain/local/000002.vlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/data/chain/local/000003.vlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/chain/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/chain/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/interfaces/block.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/block.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/interfaces/blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/blockchain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/interfaces/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/interfaces/node.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/node.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/COPYING" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/benchmarks_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/circle.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/codecov.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/conversion.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/conversion_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/div.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/fuzz.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/uint256.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/numbers/uint256/uint256_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/bypass.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/bypasssafe.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/common.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/dump.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/format.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/spew.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/2q.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/2q.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/arc.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/arc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/lru.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/lru.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/simplelru/lru.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/simplelru/lru.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/simplelru/lru_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/hashicorp/golang-lru/simplelru/lru_interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/goupnp.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/goupnp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/httpu/httpu.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/httpu/httpu.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/soap/soap.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/soap/soap.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/ssdp/ssdp.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/huin/goupnp/ssdp/ssdp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/batch.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/cache/cache.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/cache/lru.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/comparer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/comparer/bytes_comparer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/comparer/comparer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_compaction.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_iter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_snapshot.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_state.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_transaction.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_util.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/db_write.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/errors.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/errors/errors.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/filter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/filter/bloom.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/filter/filter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/iterator/array_iter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/iterator/indexed_iter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/iterator/iter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/iterator/merged_iter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/journal/journal.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/key.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/memdb/memdb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/opt/options.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/options.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/session.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/session_compaction.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/session_record.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/session_util.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_nacl.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_plan9.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_solaris.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_unix.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/file_storage_windows.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/mem_storage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/storage/storage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/table.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/table/reader.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/table/table.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/table/writer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util/buffer_pool.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util/crc32.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util/hash.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util/range.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/util/util.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/syndtr/goleveldb/leveldb/version.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/atom/atom.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/atom/table.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/charset/charset.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/const.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/doctype.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/entity.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/escape.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/foreign.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/node.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/parse.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/render.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/net/html/token.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/charmap/charmap.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/charmap/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/encoding.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/htmlindex/htmlindex.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/htmlindex/map.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/htmlindex/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/internal/identifier/identifier.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/internal/identifier/mib.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/internal/internal.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/japanese/all.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/japanese/eucjp.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/japanese/iso2022jp.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/japanese/shiftjis.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/japanese/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/korean/euckr.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/korean/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/simplifiedchinese/all.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/simplifiedchinese/gbk.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/simplifiedchinese/hzgb2312.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/simplifiedchinese/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/traditionalchinese/big5.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/traditionalchinese/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/unicode/override.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/encoding/unicode/unicode.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/common.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compact.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compact/compact.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compact/language.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compact/parents.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compact/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compact/tags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/compose.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/coverage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/language.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/lookup.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/match.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/parse.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/language/tags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/tag/tag.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/internal/utf8internal/utf8internal.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/coverage.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/go1_1.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/go1_2.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/language.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/match.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/parse.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/tables.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/language/tags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/runes/cond.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/golang.org/x/text/runes/runes.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/interfaces/transactions.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/transactions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/interfaces/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/wallet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/COPYING.LESSER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/abi.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/argument.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/error.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/event.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/method.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/pack.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/reflect.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/topics.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/accounts/abi/unpack.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/big.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/bytes.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/debug.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/format.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/hexutil/hexutil.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/hexutil/json.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/math/big.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/math/integer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/path.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/size.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/test_utils.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/common/types.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/crypto.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/curve.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/dummy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/ext.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/include/dummy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/include/secp256k1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/include/secp256k1_ecdh.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/include/secp256k1_recovery.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/basic-config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench_ecdh.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench_internal.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench_recover.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench_schnorr_verify.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench_sign.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/bench_verify.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/dummy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecdsa.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecdsa_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/eckey.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/eckey_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecmult.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecmult_const.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecmult_const_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecmult_gen.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecmult_gen_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/ecmult_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_10x26.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_10x26_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_5x52.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_5x52_asm_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_5x52_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_5x52_int128_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/field_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/gen_context.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/group.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/group_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/hash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/hash_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/modules/recovery/Makefile.am.include" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/modules/recovery/dummy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/modules/recovery/main_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/modules/recovery/tests_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/num.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/num_gmp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/num_gmp_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/num_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_4x64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_4x64_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_8x32.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_8x32_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_low.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/scalar_low_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/secp256k1.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/testrand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/testrand_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/tests_exhaustive.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1/src/util.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/panic_cb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/scalar_mult_cgo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/scalar_mult_nocgo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/secp256k1/secp256.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/signature_cgo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/crypto/signature_nocgo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/decode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/encode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/iterator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/raw.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/safe.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/typecache.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ethereum/go-ethereum/rlp/unsafe.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/modules.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

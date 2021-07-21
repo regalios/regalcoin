@@ -2,7 +2,7 @@ package interfaces
 
 import (
 	"io"
-	"regalcoin/chain/numbers/uint256"
+	"regalcoin/chain/numbers"
 )
 
 type IWallet interface{
@@ -44,12 +44,12 @@ type Wallet struct {
 
 type Outpoint struct {
 	IOutpoint
-	hash uint256.Int
+	hash numbers.Uint256
 	n uint32
 }
 
 type IOutpoint interface {
-	Create(hashIn uint256.Int, nIn uint32) Outpoint
+	Create(hashIn numbers.Uint256, nIn uint32) Outpoint
 	Serialize(rw io.ReadWriteCloser, serAction interface{})
 	SetNull()
 	IsNull() bool
