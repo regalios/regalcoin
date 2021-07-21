@@ -3,7 +3,10 @@ module github.com/regalios/regalcoin
 go 1.16
 
 require (
+	github.com/BurntSushi/toml v0.3.1
 	github.com/adrg/xdg v0.3.3
+	github.com/davecgh/go-spew v1.1.1
+	github.com/dgraph-io/badger/v3 v3.2103.1
 	github.com/libp2p/go-libp2p v0.14.4
 	github.com/libp2p/go-libp2p-core v0.8.6
 	github.com/libp2p/go-libp2p-kad-dht v0.12.2

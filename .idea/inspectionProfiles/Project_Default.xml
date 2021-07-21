@@ -16,6 +16,7 @@
         <method importPath="github.com/libp2p/go-libp2p-core/host" receiver="Host" name="Close" />
         <method importPath="github.com/libp2p/go-libp2p/p2p/discovery" receiver="Service" name="Close" />
         <method importPath="github.com/syndtr/goleveldb/leveldb" receiver="*DB" name="Close" />
+        <method importPath="github.com/dgraph-io/badger/v3" receiver="*DB" name="Close" />
       </methods>
     </inspection_tool>
   </profile>

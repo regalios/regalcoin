@@ -2,37 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e110a1b9-123b-4b36-8eab-ef4418dd3a10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chain/interfaces/database.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/network/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chain/network/servicesdef.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain/config.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/chain/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/chain/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/network/node.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/network/node.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/bypass.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/bypasssafe.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/common.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/dump.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/format.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/davecgh/go-spew/spew/spew.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/tracer/wire/wire.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/ipfs/go-log/tracer/wire/wire.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/libp2p/go-libp2p/p2p/discovery/mdns.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/client.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/log.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/server.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/whyrusleeping/mdns/zone.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/interfaces/blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/interfaces/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/interfaces/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/AUTHORS" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/AUTHORS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/CONTRIBUTORS" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/CONTRIBUTORS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/decode_amd64.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/decode_other.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/decode_other.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/encode.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/encode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/encode_amd64.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/encode_other.go" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/github.com/golang/snappy/encode_other.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chain/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chain/vendor/modules.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

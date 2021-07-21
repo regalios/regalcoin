@@ -63,6 +63,21 @@ type RegalChain struct {
 	Genesis string
 	LastHeight uint64
 
+}
 
+type Block struct {
+	Index uint64
+	Header *BlockHeader
+	Hash *uint256.Int
+	Height uint64
+	Tx []Transaction
+	Payload map[int]string
+	IBlock
+}
 
+type GenesisBlock struct {
+	Block
+	Validators map[uint256.Int]Validator
+	GenesisTime int64
+	
 }

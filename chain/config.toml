@@ -1,0 +1,91 @@
+title = "Regalcoin blockchain configuration file"
+
+[currency]
+name = "Regal"
+symbol = "REGAL"
+name_plur = "Regals"
+symbol_plur = "REGALS"
+min_unit_namm = "regalios"
+min_value = 0.001
+regalios_in_regal = 1000
+decimal = 4
+coinbase_address = ""
+liquidity_address = ""
+
+[chain]
+version = 0
+genesis_file = "genesis.json"
+generate_new_keys = true
+
+[system]
+icb_enabled = true
+debug_enabled = true
+dev_mode = true
+test_mode = true
+prod_mode = false
+network_type = "local"
+max_cpus = 4
+min_cpus = 2
+max_mem = 32000
+min_mem = 8000
+rpc_port = 55234
+priv_key = ""
+pub_key = ""
+log_path = "data/logs"
+log_file = "chainlog.log"
+log_level = "info"
+display_error = true
+
+
+[icb]
+total_supply = 10000000
+token_name = "regalICB"
+eth_token_address = ""
+token_min_bid = 0.01
+website = "https://icb.regalios.com"
+email = "info@regalios.com"
+twitter = ""
+telegram = ""
+coinmarketcap = ""
+coingecko = ""
+bitcointalk = ""
+reddit = ""
+whitepaper_url = ""
+github = "https://github.com/regalios/regalcoin"
+objective = 0
+start_date = ""
+max_date = ""
+
+
+[general]
+domain = "regalios.com"
+name = "Regal Empire blockchain"
+email = "info@regalios.com"
+version = "1.0.0"
+
+[p2p]
+port = 45545
+bootstrap_file = "bootstrap.json"
+custom_bootstrappers = [""]
+min_peers = 2
+max_peers = 50
+timeout = 60
+
+[database]
+in_memory_max = 1024
+localpath = "data/chain/local"
+testpath = "data/chain/testnet"
+livepath = "data/chain/livedb"
+dbnames = ["states", "blocks", "wallets", "p2p", "transactions", "mempool"]
+
+[validators]
+min_validators_required = 3
+max_validators = 500
+min_stake = 0.01
+max_stake = 10000000
+voting_power_per_stake_unit = 0
+max_voting_power = 30
+max_sub_validators = 100
+max_time_to_validate = 60
+stake_reward = 1000
+required_for_quorum_percent = 70

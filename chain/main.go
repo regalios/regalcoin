@@ -15,11 +15,10 @@ limitations under the License.
 */
 package main
 
-import "github.com/regalios/regalcoin/network"
+import _ "github.com/regalios/regalcoin/config"
 
 func main() {
 
 
-	network.CreateNetwork("")
 	//cmd.Execute()
 }

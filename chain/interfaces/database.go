@@ -1,15 +1,24 @@
 package interfaces
 
 import (
-	leveldb "github.com/syndtr/goleveldb/leveldb"
+	"github.com/syndtr/goleveldb/leveldb"
 	"path/filepath"
+ badger "github.com/dgraph-io/badger/v3"
 )
 
 
 type Database struct {
 	Path string `json:"-"`
 	Name string `json:"-"`
-	Instance *leveldb.DB
+	Instance *badger.DB
+	currentBatch *badger.Txn
+	IDB
+}
+
+type MemDB struct {
+	Name string `json:"-"`
+	Instance *badger.DB
+	currentBatch *badger.Txn
 	IDB
 }
 
@@ -21,12 +30,13 @@ const LiveNetDBPath = "live"
 var localDbPath = filepath.Join(DefaultDBPathPrefix, LocalNetDBPath)
 var testnetDbPath = filepath.Join(DefaultDBPathPrefix, TestNetDBPath)
 var livenetDbPath = filepath.Join(DefaultDBPathPrefix, LiveNetDBPath)
-var ldb *leveldb.DB
-var LDB = ldb
+var ldb *badger.DB
+var Storage = ldb
+var cacheSize = 1024 << 20
 
 type IDB interface {
 	GetPath(networkType string) string
-	GetInstance(networkType string) *leveldb.DB
+	GetInstance(networkType string) *badger.DB
 	SetInstance(networkType string) error
 }
 
