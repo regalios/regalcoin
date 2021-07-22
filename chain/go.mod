@@ -7,7 +7,7 @@ require (
 	github.com/adrg/xdg v0.3.3
 	github.com/asdine/storm/v3 v3.2.1
 	github.com/btcsuite/btcd v0.21.0-beta
-	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/davecgh/go-spew v1.1.1
 	github.com/dgraph-io/badger/v3 v3.2103.1 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/hashicorp/golang-lru v0.5.5-0.20210104140557-80c98217689d // indirect
@@ -21,7 +21,8 @@ require (
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.8.1
-	github.com/timshannon/badgerhold v1.0.0
+	github.com/timshannon/badgerhold v1.0.0 // indirect
 	github.com/urfave/cli/v2 v2.3.0
+	github.com/wealdtech/go-merkletree v1.0.0
 	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
 )

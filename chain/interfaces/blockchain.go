@@ -10,6 +10,7 @@ import (
 	"regalcoin/chain/config"
 	"regalcoin/chain/numbers"
 	"time"
+	"github.com/davecgh/go-spew/spew"
 )
 
 var (
@@ -127,7 +128,11 @@ func AddBlocksAtInterval(r *RegalChain ,n time.Duration) {
 
 		log.Infoln(now)
 		r1 := B.NewBlock(r)
+		tree := NewMerkleTree(r1.Blocks)
+		root := tree.Root()
+		r1.Blocks[r1.NumBlocks-1].Header.HashMerkleRoot = numbers.NewUint256(root).String()
 
+		spew.Dump(r1.Blocks[r1.NumBlocks-1])
 
 		log.Infoln(fmt.Sprintf("new block added at height: %v with hash: %s ", r1.NumBlocks, r1.Blocks[r1.NumBlocks-1].Hash))
 

@@ -25,7 +25,7 @@ type BlockHeader struct {
 	ChainID string
 	Version uint16
 	HashPrevBlock *numbers.Uint256
-	HashMerkleRoot *numbers.Uint256
+	HashMerkleRoot string
 	Timestamp int64
 	Bits uint32
 	Nonce uint32
@@ -67,7 +67,7 @@ func (b Block) NewBlock(chain *RegalChain) *RegalChain {
 	block.Header = new(BlockHeader)
 	block.Header.Version = chain.Blocks[0].Header.Version
 	block.Header.ChainID = chain.ChainID
-	block.Header.HashMerkleRoot = new(numbers.Uint256)
+	block.Header.HashMerkleRoot = new(numbers.Uint256).String()
 	block.Header.HashPrevBlock = new(numbers.Uint256)
 	block.Header.Bits = 0
 	block.Header.Nonce = 0
@@ -95,7 +95,7 @@ func (g GenesisBlock) Create(chain *RegalChain) *GenesisBlock {
 	genesis.b = new(Block)
 	genesis.b.Header = new(BlockHeader)
 	genesis.b.Header.Version = 0
-	genesis.b.Header.HashMerkleRoot = new(numbers.Uint256)
+	genesis.b.Header.HashMerkleRoot = new(numbers.Uint256).String()
 	genesis.b.Header.HashPrevBlock = new(numbers.Uint256)
 	genesis.b.Header.Bits = 0
 	genesis.b.Header.Nonce = 0
