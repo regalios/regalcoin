@@ -2,12 +2,8 @@ package interfaces
 
 import (
 	"encoding/json"
-	"github.com/davecgh/go-spew/spew"
-	"github.com/dgraph-io/badger/v3"
-	"github.com/google/uuid"
 	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/regalios/regalcoin/crypto"
-	log "github.com/sirupsen/logrus"
 	"regalcoin/chain/numbers"
 	"time"
 )
@@ -26,6 +22,7 @@ type IBlockHeader interface {
 
 
 type BlockHeader struct {
+	ChainID string
 	Version uint16
 	HashPrevBlock *numbers.Uint256
 	HashMerkleRoot *numbers.Uint256
@@ -47,20 +44,49 @@ type IBlockLocator interface {
 }
 
 type Block struct {
-	Index uint64	`badgerhold:"key"`
+
+	Index int `storm:"id,increment"`
 	Header *BlockHeader
-	Hash *numbers.Uint256 `badgerholdIndex:"IdxBlockHash"`
-	Height uint64 `badgerholdIndex:"IdxBlockHeight"`
-	Tx []Transaction `badgerholdIndex:"IdxBlockTx"`
+	Hash string
+	Height uint64 `storm:"index,increment"`
+	Tx []Transaction
 	Payload map[int]string
-	Validators []string `badgerholdIndex:"IdxBlockValidators"`
+	Validators []string
 	Size int
-	IBlock
+	IBlock `json:"-"`
 }
 
 type GenesisBlock struct {
 	b *Block
 	GenesisTime int64
+}
+
+func (b Block) NewBlock(chain *RegalChain) *RegalChain {
+
+	block := new(Block)
+	block.Header = new(BlockHeader)
+	block.Header.Version = chain.Blocks[0].Header.Version
+	block.Header.ChainID = chain.ChainID
+	block.Header.HashMerkleRoot = new(numbers.Uint256)
+	block.Header.HashPrevBlock = new(numbers.Uint256)
+	block.Header.Bits = 0
+	block.Header.Nonce = 0
+	block.Header.Timestamp = time.Now().UnixNano()
+	block.Index = chain.NumBlocks
+	block.Height = uint64(chain.NumBlocks+1)
+
+	ser, _ := json.Marshal(block)
+	hash := crypto.NewHashSHA3256(ser)
+	block.Hash = hash.String()
+	block.Header.HashPrevBlock = crypto.NewHashSHA3256([]byte(chain.Blocks[block.Index-1].Hash))
+
+	chain.Blocks = append(chain.Blocks, block)
+	chain.NumBlocks++
+
+	StoreBlock(chain.NetworkType, *block)
+
+	return chain
+
 }
 
 func (g GenesisBlock) Create(chain *RegalChain) *GenesisBlock {
@@ -75,23 +101,24 @@ func (g GenesisBlock) Create(chain *RegalChain) *GenesisBlock {
 	genesis.b.Header.Nonce = 0
 	genesis.b.Header.Timestamp = time.Now().UnixNano()
 	genesis.b.Index = 0
-	genesis.b.Hash = nil
+	genesis.b.Hash = ""
 	genesis.b.Height = 0
 	genesis.b.Tx = make([]Transaction,0)
 	genesis.b.Payload = make(map[int]string, 0)
 	genesis.b.Validators = make([]string, 0)
-	genesis.GenesisTime = time.Now().UnixNano()
+	genesis.GenesisTime = 	genesis.b.Header.Timestamp
+	genesis.b.Header.ChainID = chain.ChainID
+
 
 	ser := genesis.Serialize()
 
 	hash := crypto.NewHashSHA3256(ser)
-	genesis.b.Hash = hash
+	genesis.b.Hash = hash.String()
 
 	ser = genesis.Serialize()
 
 	genesis.b.Size = len(ser[:])
 
-	chain.BlockCandidates[0] = genesis.b
 
 
 	return genesis
@@ -104,105 +131,11 @@ func calculateHash(data []byte) *numbers.Uint256 {
 	return numbers.NewUint256(data)
 }
 
-func (g *GenesisBlock) AddToQueue() error {
-
-	txn := blockQueueDB.NewTransaction(true)
-	defer txn.Discard()
-	ser := g.Serialize()
-	size := len(ser)
-	g.b.Size = size
-	g.b.Hash = calculateHash(ser)
-	err := txn.Set([]byte("block0"), ser)
-	if err != nil {
-		log.Errorln("cannot add genesis block to queue", err)
-		return err
-	}
-	if err := txn.Commit(); err != nil {
-		return err
-	}
-	log.Infoln("added genesis block to queue...")
-
-	return nil
-
-}
 
 func (g *GenesisBlock) Serialize() []byte {
 
 
 	s, _ := json.Marshal(g.b)
 	return s
-
-}
-
-type BlockQueue struct {}
-
-var blockQueueDB *badger.DB
-
-func (q BlockQueue) GetInstance() {
-
-
-	blockQueueDB, err := badger.Open(badger.DefaultOptions("data/chain/blockqueue"))
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer  blockQueueDB.Close()
-
-}
-
-func (q BlockQueue) ProcessBlocks() error {
-
-
-
-	var block Block
-	err := blockQueueDB.View(func(txn *badger.Txn) error {
-		opts := badger.DefaultIteratorOptions
-		opts.PrefetchSize = 10
-		it := txn.NewIterator(opts)
-		defer it.Close()
-		for it.Rewind(); it.Valid(); it.Next() {
-			item := it.Item()
-			k := item.Key()
-			err := item.Value(func(v []byte) error {
-				block := json.Unmarshal(v, &block)
-				log.Infoln(k, block)
-				return nil
-			})
-			if err != nil {
-				return err
-			}
-		}
-		return nil
-
-	})
-
-	if err != nil {
-		return err
-	}
-
-
-	return nil
-
-}
-
-func init() {
-
-	chain := new(RegalChain)
-	chain.ChainID = uuid.New().String()
-	chain.BlockCandidates = make(map[int]*Block, 0)
-
-
-
-	 g := new(GenesisBlock)
-	g.Create(chain)
-	 blockHead := chain.BlockCandidates[0]
-	 if blockHead.Index == 0 {
-	 	chain.Blocks = make(map[int]map[string]*Block, 0)
-	 	blockHash := chain.BlockCandidates[0].Hash.String()
-	 	chain.Blocks[0][blockHash] =  chain.BlockCandidates[0]
-	 	chain.BlockCandidates[0] = nil
-	 	chain.Genesis = blockHash
-	 }
-
-	 spew.Dump(chain)
 
 }

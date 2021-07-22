@@ -5,9 +5,10 @@ go 1.16
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/adrg/xdg v0.3.3
+	github.com/asdine/storm/v3 v3.2.1
 	github.com/btcsuite/btcd v0.21.0-beta
-	github.com/davecgh/go-spew v1.1.1
-	github.com/dgraph-io/badger/v3 v3.2103.1
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/dgraph-io/badger/v3 v3.2103.1 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/hashicorp/golang-lru v0.5.5-0.20210104140557-80c98217689d // indirect
 	github.com/huin/goupnp v1.0.1-0.20210626160114-33cdcbb30dda // indirect

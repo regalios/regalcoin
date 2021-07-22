@@ -6,13 +6,19 @@ github.com/BurntSushi/toml
 # github.com/adrg/xdg v0.3.3
 ## explicit
 github.com/adrg/xdg
+# github.com/asdine/storm/v3 v3.2.1
+## explicit
+github.com/asdine/storm/v3
+github.com/asdine/storm/v3/codec
+github.com/asdine/storm/v3/codec/json
+github.com/asdine/storm/v3/index
+github.com/asdine/storm/v3/internal
+github.com/asdine/storm/v3/q
 # github.com/beorn7/perks v1.0.1
 github.com/beorn7/perks/quantile
 # github.com/btcsuite/btcd v0.21.0-beta
 ## explicit
 github.com/btcsuite/btcd/btcec
-# github.com/cespare/xxhash v1.1.0
-github.com/cespare/xxhash
 # github.com/cespare/xxhash/v2 v2.1.1
 github.com/cespare/xxhash/v2
 # github.com/coreos/go-semver v0.3.0
@@ -21,7 +27,6 @@ github.com/coreos/go-semver/semver
 github.com/cpuguy83/go-md2man/v2/md2man
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
-github.com/davecgh/go-spew/spew
 # github.com/davidlazar/go-crypto v0.0.0-20200604182044-b73af7476f6c
 github.com/davidlazar/go-crypto/salsa20
 # github.com/dgraph-io/badger v1.6.1
@@ -34,16 +39,7 @@ github.com/dgraph-io/badger/trie
 github.com/dgraph-io/badger/y
 # github.com/dgraph-io/badger/v3 v3.2103.1
 ## explicit
-github.com/dgraph-io/badger/v3
-github.com/dgraph-io/badger/v3/fb
-github.com/dgraph-io/badger/v3/options
-github.com/dgraph-io/badger/v3/pb
-github.com/dgraph-io/badger/v3/skl
-github.com/dgraph-io/badger/v3/table
-github.com/dgraph-io/badger/v3/trie
-github.com/dgraph-io/badger/v3/y
 # github.com/dgraph-io/ristretto v0.1.0
-github.com/dgraph-io/ristretto
 github.com/dgraph-io/ristretto/z
 github.com/dgraph-io/ristretto/z/simd
 # github.com/dustin/go-humanize v1.0.0
@@ -58,18 +54,12 @@ github.com/gogo/protobuf/proto
 github.com/gogo/protobuf/protoc-gen-gogo/descriptor
 # github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 github.com/golang/glog
-# github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e
-github.com/golang/groupcache/lru
 # github.com/golang/protobuf v1.5.2
 github.com/golang/protobuf/proto
 github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
-# github.com/golang/snappy v0.0.3
-github.com/golang/snappy
-# github.com/google/flatbuffers v1.12.0
-github.com/google/flatbuffers/go
 # github.com/google/gopacket v1.1.19
 github.com/google/gopacket/routing
 # github.com/google/uuid v1.2.0
@@ -134,11 +124,6 @@ github.com/jbenet/go-temp-err-catcher
 github.com/jbenet/goprocess
 github.com/jbenet/goprocess/context
 github.com/jbenet/goprocess/periodic
-# github.com/klauspost/compress v1.12.3
-github.com/klauspost/compress/fse
-github.com/klauspost/compress/huff0
-github.com/klauspost/compress/zstd
-github.com/klauspost/compress/zstd/internal/xxhash
 # github.com/klauspost/cpuid/v2 v2.0.4
 github.com/klauspost/cpuid/v2
 # github.com/konsorten/go-windows-terminal-sequences v1.0.3
@@ -383,9 +368,9 @@ github.com/urfave/cli/v2
 github.com/whyrusleeping/go-keyspace
 # github.com/whyrusleeping/multiaddr-filter v0.0.0-20160516205228-e903e4adabd7
 github.com/whyrusleeping/multiaddr-filter
+# go.etcd.io/bbolt v1.3.4
+go.etcd.io/bbolt
 # go.opencensus.io v0.23.0
-go.opencensus.io
-go.opencensus.io/internal
 go.opencensus.io/internal/tagencoding
 go.opencensus.io/metric/metricdata
 go.opencensus.io/metric/metricproducer
@@ -394,9 +379,6 @@ go.opencensus.io/stats
 go.opencensus.io/stats/internal
 go.opencensus.io/stats/view
 go.opencensus.io/tag
-go.opencensus.io/trace
-go.opencensus.io/trace/internal
-go.opencensus.io/trace/tracestate
 # go.uber.org/atomic v1.7.0
 go.uber.org/atomic
 # go.uber.org/multierr v1.6.0

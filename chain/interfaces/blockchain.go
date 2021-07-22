@@ -3,12 +3,13 @@ package interfaces
 import (
 	"encoding/hex"
 	"encoding/json"
+	"fmt"
 	"github.com/google/uuid"
 	log "github.com/sirupsen/logrus"
-	"github.com/timshannon/badgerhold"
 	"io/ioutil"
 	"regalcoin/chain/config"
 	"regalcoin/chain/numbers"
+	"time"
 )
 
 var (
@@ -52,7 +53,8 @@ type IBlockchain interface {
 
 type RegalChain struct {
 
-	IBlockchain
+	IBlockchain `json:"-"`
+	Name string
 	NetworkType string
 	Version uint32
 	ChainID string
@@ -60,7 +62,7 @@ type RegalChain struct {
 	LastHeight uint64
 	SuperValidators []string
 	Validators []*Validator
-	Blocks map[int]map[string]*Block
+	Blocks []*Block
 	BlockCandidates map[int]*Block
 	BlockMemStorage map[int]*Block
 	NumBlocks int
@@ -91,66 +93,80 @@ type ValidatorRewardSettings struct {
 
 }
 
-func NewChain(networkType string, version uint32) *RegalChain {
+func NewChain(networkType string, version uint32)  {
+
 
 	r := new(RegalChain)
 	r.ChainID = uuid.New().String()
+	r.Name = "RegalChain"
 	r.NetworkType = networkType
 	r.Version = version
 	r.BlockCandidates = make(map[int]*Block, 0)
 	r.config = (*config.Config)(config.ChainConfig)
 	r.NewGenesis()
-	r.GetTotalBlocks()
 
+
+	_ = r.StoreValidBlock(r.Blocks[0])
+
+	r.GetTotalBlocks()
 	// start node here
 
-	return r
+
+
+	go AddBlocksAtInterval(r, 2)
+	select {}
+
+
+
+}
+
+func AddBlocksAtInterval(r *RegalChain ,n time.Duration) {
+	var B Block
+
+	for now := range time.Tick(time.Second * n) {
+
+		log.Infoln(now)
+		r1 := B.NewBlock(r)
+
+
+		log.Infoln(fmt.Sprintf("new block added at height: %v with hash: %s ", r1.NumBlocks, r1.Blocks[r1.NumBlocks-1].Hash))
+
+	}
 }
 
 func (r *RegalChain) StoreValidBlock(b *Block) error {
-	db := GetDB(r.NetworkType)
-	defer db.Close()
-	err := db.Insert(b.Hash.String(), b)
-	if err != nil {
-		log.Errorln("there was an error storing the new validated block")
-		return err
-	}
+
+	StoreBlock(r.NetworkType, *b)
 	return nil
+
 }
 
-func (r *RegalChain) GetBlocks(fromIndex int, toIndex int) {
-	db := GetDB(r.NetworkType)
-	defer db.Close()
-	var blocks map[int]*Block
-	err := db.Find(&blocks, badgerhold.Where("Index").Le(toIndex).And("Index").Ge(fromIndex))
-	if err != nil {
-		log.Errorln("there was a problem fetching the requested blocks")
-	}
-	r.BlockMemStorage = blocks
+func (r *RegalChain) GetBlocks() {
+
+	allBlocks := GetAllBlocks(r.NetworkType)
+	r.Blocks = allBlocks
+
 }
 
 func (r *RegalChain) resetBlockMemStorage() {
 	r.BlockMemStorage = nil
 }
 
+
+
 func (r *RegalChain) GetTotalBlocks() {
-	db := GetDB(r.NetworkType)
-	defer db.Close()
-	var blocks []*Block
-	err := db.Find(&blocks, nil)
-	if err != nil {
-		log.Errorln("there was a problem fetching the requested blocks")
-	}
-	r.NumBlocks = len(blocks)
+
+	r.NumBlocks = len(r.Blocks)
 
 }
 
 func (r *RegalChain) NewGenesis() {
 	genesis := new(GenesisBlock)
 	g := genesis.Create(r)
-	r.Blocks = make(map[int]map[string]*Block, 0)
-	r.Blocks[0][g.b.Hash.String()] = g.b
-	r.Genesis = g.b.Hash.String()
+	r.Blocks = make([]*Block, 0)
+
+	r.Blocks = append(r.Blocks, g.b)
+	r.Genesis = g.b.Hash
 
 	IOF := new(IO)
 	genBytes, _ := json.Marshal(g.b)
