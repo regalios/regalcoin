@@ -15,11 +15,14 @@ limitations under the License.
 */
 package main
 
-import "github.com/regalios/regalcoin/interfaces"
+import (
+	"github.com/regalios/regalcoin/interfaces"
+)
 
 func main() {
 
-	interfaces.StartDB("local")
+interfaces.NewChain("local", uint32(0))
+
 
 
 	//cmd.Execute()
