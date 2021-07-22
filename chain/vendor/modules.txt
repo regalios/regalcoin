@@ -1,3 +1,5 @@
+# github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96
+github.com/AndreasBriese/bbloom
 # github.com/BurntSushi/toml v0.3.1
 ## explicit
 github.com/BurntSushi/toml
@@ -7,6 +9,7 @@ github.com/adrg/xdg
 # github.com/beorn7/perks v1.0.1
 github.com/beorn7/perks/quantile
 # github.com/btcsuite/btcd v0.21.0-beta
+## explicit
 github.com/btcsuite/btcd/btcec
 # github.com/cespare/xxhash v1.1.0
 github.com/cespare/xxhash
@@ -21,6 +24,14 @@ github.com/cpuguy83/go-md2man/v2/md2man
 github.com/davecgh/go-spew/spew
 # github.com/davidlazar/go-crypto v0.0.0-20200604182044-b73af7476f6c
 github.com/davidlazar/go-crypto/salsa20
+# github.com/dgraph-io/badger v1.6.1
+github.com/dgraph-io/badger
+github.com/dgraph-io/badger/options
+github.com/dgraph-io/badger/pb
+github.com/dgraph-io/badger/skl
+github.com/dgraph-io/badger/table
+github.com/dgraph-io/badger/trie
+github.com/dgraph-io/badger/y
 # github.com/dgraph-io/badger/v3 v3.2103.1
 ## explicit
 github.com/dgraph-io/badger/v3
@@ -62,6 +73,7 @@ github.com/google/flatbuffers/go
 # github.com/google/gopacket v1.1.19
 github.com/google/gopacket/routing
 # github.com/google/uuid v1.2.0
+## explicit
 github.com/google/uuid
 # github.com/gorilla/websocket v1.4.2
 github.com/gorilla/websocket
@@ -285,6 +297,7 @@ github.com/mitchellh/go-homedir
 # github.com/mitchellh/mapstructure v1.4.1
 github.com/mitchellh/mapstructure
 # github.com/mr-tron/base58 v1.2.0
+## explicit
 github.com/mr-tron/base58/base58
 # github.com/multiformats/go-base32 v0.0.3
 github.com/multiformats/go-base32
@@ -360,6 +373,9 @@ github.com/spf13/pflag
 github.com/spf13/viper
 # github.com/subosito/gotenv v1.2.0
 github.com/subosito/gotenv
+# github.com/timshannon/badgerhold v1.0.0
+## explicit
+github.com/timshannon/badgerhold
 # github.com/urfave/cli/v2 v2.3.0
 ## explicit
 github.com/urfave/cli/v2
@@ -402,6 +418,7 @@ golang.org/x/crypto/curve25519
 golang.org/x/crypto/curve25519/internal/field
 golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/poly1305
+golang.org/x/crypto/ripemd160
 golang.org/x/crypto/salsa20/salsa
 golang.org/x/crypto/sha3
 # golang.org/x/net v0.0.0-20210423184538-5f58ad60dda6

@@ -1,5 +1,7 @@
 package interfaces
 
+import "errors"
+
 type Consensus struct {
 	Blockchain RegalChain
 }
@@ -11,7 +13,7 @@ func (c Consensus) ValidateBlockchain() error {
 		return nil
 	}
 
-	/*currBlockIdx := len(blocks)-1
+	currBlockIdx := len(blocks)-1
 	prevBlockIdx := len(blocks)-2
 
 	for prevBlockIdx >= 0 {
@@ -27,7 +29,7 @@ func (c Consensus) ValidateBlockchain() error {
 		currBlockIdx--
 		prevBlockIdx--
 
-	}*/
+	}
 
 	return nil
 

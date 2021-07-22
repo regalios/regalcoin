@@ -47,13 +47,13 @@ type IBlockLocator interface {
 }
 
 type Block struct {
-	Index uint64
+	Index uint64	`badgerhold:"key"`
 	Header *BlockHeader
-	Hash *numbers.Uint256
-	Height uint64
-	Tx []Transaction
+	Hash *numbers.Uint256 `badgerholdIndex:"IdxBlockHash"`
+	Height uint64 `badgerholdIndex:"IdxBlockHeight"`
+	Tx []Transaction `badgerholdIndex:"IdxBlockTx"`
 	Payload map[int]string
-	Validators []string
+	Validators []string `badgerholdIndex:"IdxBlockValidators"`
 	Size int
 	IBlock
 }
@@ -91,7 +91,7 @@ func (g GenesisBlock) Create(chain *RegalChain) *GenesisBlock {
 
 	genesis.b.Size = len(ser[:])
 
-	chain.BlockCandidates = append(chain.BlockCandidates, genesis.b)
+	chain.BlockCandidates[0] = genesis.b
 
 
 	return genesis
@@ -188,7 +188,7 @@ func init() {
 
 	chain := new(RegalChain)
 	chain.ChainID = uuid.New().String()
-	chain.BlockCandidates = make([]*Block, 0)
+	chain.BlockCandidates = make(map[int]*Block, 0)
 
 
 
@@ -196,9 +196,9 @@ func init() {
 	g.Create(chain)
 	 blockHead := chain.BlockCandidates[0]
 	 if blockHead.Index == 0 {
-	 	chain.Blocks = make(map[string]*Block)
+	 	chain.Blocks = make(map[int]map[string]*Block, 0)
 	 	blockHash := chain.BlockCandidates[0].Hash.String()
-	 	chain.Blocks[blockHash] =  chain.BlockCandidates[0]
+	 	chain.Blocks[0][blockHash] =  chain.BlockCandidates[0]
 	 	chain.BlockCandidates[0] = nil
 	 	chain.Genesis = blockHash
 	 }
