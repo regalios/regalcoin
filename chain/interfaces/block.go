@@ -1,16 +1,18 @@
 package interfaces
 
 import (
+	"context"
 	"encoding/json"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/ipfs/go-cid"
+	cbor "github.com/ipfs/go-ipld-cbor"
 	"github.com/libp2p/go-libp2p-core/network"
+	mh "github.com/multiformats/go-multihash"
 	"github.com/regalios/regalcoin/crypto"
+	log "github.com/sirupsen/logrus"
 	"io/ioutil"
 	"regalcoin/chain/numbers"
 	"time"
-	mh "github.com/multiformats/go-multihash"
-	cbor "github.com/ipfs/go-ipld-cbor"
-
 )
 
 
@@ -89,12 +91,31 @@ func (b Block) NewBlock(chain *RegalChain) *RegalChain {
 	ser, _ := json.Marshal(block)
 	hash := crypto.NewHashSHA3256(ser)
 	block.Hash = hash.String()
-	block.Header.HashPrevBlock = chain.GetHead().CID.String()
+	if chain.Head.CID != nil {
+		block.Header.HashPrevBlock = chain.Head.CID.String()
+	}
 
-	chain.Blocks = append(chain.Blocks, block)
 	chain.NumBlocks++
 
-	StoreBlock(chain.NetworkType, *block)
+	cid, err := chain.StoreValidBlock(chain.ChainFetcher, block)
+
+	if err != nil {
+		panic(err)
+	}
+
+	log.Infoln(cid.String())
+
+	bl, err := chain.ChainFetcher.GetBlock(context.Background(), cid)
+	if err != nil {
+		panic(err)
+	}
+	log.Infoln(bl.Loggable())
+	bb, err := chain.BlockStore.Get(bl.Cid())
+	if err != nil {
+		panic(err)
+	}
+	spew.Dump(bb.RawData())
+
 
 	return chain
 

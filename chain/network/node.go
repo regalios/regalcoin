@@ -52,6 +52,10 @@ func CreateNode(ctx context.Context) *Node {
 	node.wallet = new(interfaces.Wallet)
 	node.chain = interfaces.NewChain(newNode, "local", 0)
 
+
+	go interfaces.AddBlocksAtInterval(node.chain, 2)
+	select {}
+
 	return &node
 
 }

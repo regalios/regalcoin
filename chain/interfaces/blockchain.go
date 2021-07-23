@@ -143,8 +143,6 @@ func NewChain(h host.Host, networkType string, version uint32) *RegalChain  {
 
 
 
-	go AddBlocksAtInterval(r, 2)
-	select {}
 
 	return r
 
@@ -161,11 +159,13 @@ func AddBlocksAtInterval(r *RegalChain ,n time.Duration) {
 
 		log.Infoln(now)
 		r1 := B.NewBlock(r)
-		//tree := NewMerkleTree(r1.Blocks)
-		//root := tree.Root()
-		//r1.Blocks.Header.HashMerkleRoot = numbers.NewUint256(root).String()
+	//	B.Header.ChainID = r.ChainID
+		r.Blocks = append(r.Blocks, &B)
 
-		spew.Dump(r1.Blocks[r1.NumBlocks-1])
+		r.Head = B
+
+
+		spew.Dump(r.Head)
 
 		log.Infoln(fmt.Sprintf("new block added at height: %v with hash: %s ", r1.NumBlocks, r1.Blocks[r1.NumBlocks-1].Hash))
 
@@ -183,6 +183,8 @@ func (r *RegalChain) StoreValidBlock(bs bserv.BlockService, b *Block) (cid.Cid, 
 	if err := bs.AddBlock(nd); err != nil {
 		return cid.Cid{}, err
 	}
+
+	r.Head = *b
 
 	return nd.Cid(), nil
 
