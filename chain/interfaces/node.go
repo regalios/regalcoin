@@ -50,7 +50,6 @@ type INode interface {
 	GetDustRelayFee() interface{}
 	ExecuteRpc(command string, params interface{}, uri string)
 	ListRpcCommands() map[int]string
-	GetUnspentOutput(outpoint *Outpoint, coin *Coin) bool
 	GetWalletDir() string
 	ListWalletDir() map[int]string
 	GetWallets() map[int]*Wallet

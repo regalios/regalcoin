@@ -1,8 +1,9 @@
 package interfaces
 
 import (
-	"io"
-	"regalcoin/chain/numbers"
+	"encoding/json"
+	"io/ioutil"
+	"os"
 )
 
 type IWallet interface{
@@ -27,33 +28,94 @@ type IWallet interface{
 	AddDestData(dest string, key string, value string) bool
 	EraseDestData(dest string, key string) bool
 	GetDestValue(prefix string) []string
-	LockCoin(output Outpoint)
-	UnlockCoin(output Outpoint)
-	IsLockecCoin(output Outpoint) bool
-	ListLockedCoin(outputs []*Outpoint)
 	CreateTransaction(recipients []string, coinControl *interface{}, sign bool, changePos int, fee float64, failReason string) *interface{}
 
 
 
 }
 
+const DefaultWalletPath = "data/wallets/wallet.dat"
+
 type Wallet struct {
+	IWallet
+	mWallet *HDWallet
+	mAddress string
+	addrBook *AddressBook
+}
+
+type AddressBook struct {
+	items []*Address
+}
+
+type Address struct {
+	id uint32
+	address string
+	wallet *HDWallet
+	txs []Transaction
+}
+
+func NewWallet() *Wallet {
+	seed, _ := GenSeed(1024)
+	mWallet := MasterKey(seed)
+	w := new(Wallet)
+	w.mWallet = mWallet
+	w.mAddress = mWallet.Address()
+	w.addrBook = new(AddressBook)
+	return w
 
 }
 
+func (w *Wallet) NewAddress() {
 
-type Outpoint struct {
-	IOutpoint
-	hash numbers.Uint256
-	n uint32
+	if len(w.addrBook.items) >= 1 {
+		id := w.addrBook.items[len(w.addrBook.items)-1].id+1
+		newAddr, _ := w.mWallet.Child(id)
+		Addr := new(Address)
+		Addr.id = id
+		Addr.address = newAddr.Address()
+		Addr.wallet = newAddr
+		w.addrBook.items = append(w.addrBook.items, Addr)
+		w.WriteToDisk(DefaultWalletPath)
+	} else {
+		id := 1
+		newAddr, _ := w.mWallet.Child(uint32(id))
+		Addr := new(Address)
+		Addr.id = uint32(id)
+		Addr.address = newAddr.Address()
+		Addr.wallet = newAddr
+		w.addrBook.items = append(w.addrBook.items, Addr)
+		w.WriteToDisk(DefaultWalletPath)
+	}
+
 }
 
-type IOutpoint interface {
-	Create(hashIn numbers.Uint256, nIn uint32) Outpoint
-	Serialize(rw io.ReadWriteCloser, serAction interface{})
-	SetNull()
-	IsNull() bool
-	ToString() string
+func (w *Wallet) WriteToDisk(path string) {
+
+	ser, _ := json.Marshal(w)
+	err := ioutil.WriteFile(path, ser, 0644)
+	if err != nil {
+		panic(err)
+	}
 }
 
+func LoadWalletFromDisk(path string) *Wallet {
 
+
+	var w Wallet
+	data, err := ioutil.ReadFile(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			data, _ = json.Marshal(NewWallet())
+		}
+
+	}
+	_ = json.Unmarshal(data, &w)
+	return &w
+
+}
+
+func (w *Wallet) GetBalance() float32 {
+
+	return 0.00
+
+}

@@ -2,20 +2,21 @@ package network
 
 import (
 	"context"
+	"fmt"
 	"github.com/libp2p/go-libp2p"
-	"github.com/libp2p/go-libp2p-core/helpers"
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/libp2p/go-libp2p-core/peer"
-	"github.com/libp2p/go-libp2p-core/protocol"
+	pubsub "github.com/libp2p/go-libp2p-pubsub"
 	"github.com/multiformats/go-multiaddr"
-	"regalcoin/chain/interfaces"
+	"github.com/regalios/regalcoin/interfaces"
 )
 
+const endpointBlocks = "regalcoin-blocks"
+const endpointTxs = "regalcoin-txs"
 
 
 type Node struct {
-	ctx context.Context
 	Host host.Host
 	config *libp2p.Config
 	options *libp2p.Option
@@ -23,28 +24,39 @@ type Node struct {
 	ID peer.ID
 	ma []multiaddr.Multiaddr
 	Stream network.Stream
-	interfaces.INode
+	wallet *interfaces.Wallet
+	chain *interfaces.RegalChain
+	pubsub *pubsub.PubSub
+
 
 }
 
+func CreateNode(ctx context.Context) *Node {
 
-
-
-func (n *Node) SetHandlers(s network.Stream, protocolID protocol.ID) {
-
-	mfunc, err := helpers.MultistreamSemverMatcher(protocolID)
+	var node Node
+	newNode, err := libp2p.New(ctx, libp2p.Defaults)
+	if err != nil {
+		panic(err)
+	}
+	ps, err := pubsub.NewFloodSub(ctx, newNode)
 	if err != nil {
 		panic(err)
 	}
 
-	connectedOn := make(chan protocol.ID)
-
-	handler := func(s network.Stream) {
-		connectedOn <- s.Protocol()
-		_ = s.Close()
+	for i, addr := range newNode.Addrs() {
+		fmt.Printf("%d: %s/ipfs/%s\n", i, addr, newNode.ID().Pretty())
 	}
 
-	n.Host.SetStreamHandlerMatch(protocolID, mfunc, handler)
+	node.Host = newNode
+	node.pubsub = ps
+	node.wallet = new(interfaces.Wallet)
+	node.chain = interfaces.NewChain(newNode, "local", 0)
 
+
+	go interfaces.AddBlocksAtInterval(node.chain, 2)
+	select {}
+
+	return &node
 
 }
+
