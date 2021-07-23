@@ -1,16 +1,27 @@
 package interfaces
 
 import (
+	"context"
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"github.com/google/uuid"
+	"github.com/ipfs/go-cid"
+	"github.com/ipfs/go-datastore"
+	cbor "github.com/ipfs/go-ipld-cbor"
+	"github.com/libp2p/go-libp2p-core/host"
+	"github.com/multiformats/go-multihash"
 	log "github.com/sirupsen/logrus"
 	"io/ioutil"
 	"regalcoin/chain/config"
 	"regalcoin/chain/numbers"
 	"time"
 	"github.com/davecgh/go-spew/spew"
+	bserv "github.com/ipfs/go-blockservice"
+	bitswap "github.com/ipfs/go-bitswap"
+	bnetwork "github.com/ipfs/go-bitswap/network"
+	norouting "github.com/ipfs/go-ipfs-routing/none"
+	bstore "github.com/ipfs/go-ipfs-blockstore"
 )
 
 var (
@@ -55,6 +66,7 @@ type IBlockchain interface {
 type RegalChain struct {
 
 	IBlockchain `json:"-"`
+	Head Block
 	Name string
 	NetworkType string
 	Version uint32
@@ -64,11 +76,13 @@ type RegalChain struct {
 	SuperValidators []string
 	Validators []*Validator
 	Blocks []*Block
+	BlockStore bstore.Blockstore
 	BlockCandidates map[int]*Block
 	BlockMemStorage map[int]*Block
 	NumBlocks int
 	//our priority queue
 	blockQueue Queue
+	ChainFetcher bserv.BlockService
 	config *config.Config
 
 }
@@ -94,7 +108,14 @@ type ValidatorRewardSettings struct {
 
 }
 
-func NewChain(networkType string, version uint32)  {
+func NewChain(h host.Host, networkType string, version uint32) *RegalChain  {
+
+	nr, _ := norouting.ConstructNilRouting(nil,nil,nil, nil)
+	bsnet := bnetwork.NewFromIpfsHost(h, nr)
+	dstore := datastore.NewMapDatastore()
+	blocks := bstore.NewBlockstore(dstore)
+	bswap := bitswap.New(context.Background(), bsnet,blocks)
+	bservice := bserv.New(blocks, bswap)
 
 
 	r := new(RegalChain)
@@ -102,12 +123,20 @@ func NewChain(networkType string, version uint32)  {
 	r.Name = "RegalChain"
 	r.NetworkType = networkType
 	r.Version = version
-	r.BlockCandidates = make(map[int]*Block, 0)
 	r.config = (*config.Config)(config.ChainConfig)
-	r.NewGenesis()
+	r.ChainFetcher = bservice
+	r.BlockStore = blocks
+	block := r.NewGenesis()
+	blkcopy := *block
+	r.Head = blkcopy
 
 
-	_ = r.StoreValidBlock(r.Blocks[0])
+	validBlockCID , err := r.StoreValidBlock(bservice, block)
+	r.Head.CID = &validBlockCID
+	if err != nil {
+		panic(err)
+	}
+
 
 	r.GetTotalBlocks()
 	// start node here
@@ -117,8 +146,12 @@ func NewChain(networkType string, version uint32)  {
 	go AddBlocksAtInterval(r, 2)
 	select {}
 
+	return r
 
+}
 
+func (r *RegalChain) GetHead() Block {
+	return r.Head
 }
 
 func AddBlocksAtInterval(r *RegalChain ,n time.Duration) {
@@ -128,9 +161,9 @@ func AddBlocksAtInterval(r *RegalChain ,n time.Duration) {
 
 		log.Infoln(now)
 		r1 := B.NewBlock(r)
-		tree := NewMerkleTree(r1.Blocks)
-		root := tree.Root()
-		r1.Blocks[r1.NumBlocks-1].Header.HashMerkleRoot = numbers.NewUint256(root).String()
+		//tree := NewMerkleTree(r1.Blocks)
+		//root := tree.Root()
+		//r1.Blocks.Header.HashMerkleRoot = numbers.NewUint256(root).String()
 
 		spew.Dump(r1.Blocks[r1.NumBlocks-1])
 
@@ -139,10 +172,19 @@ func AddBlocksAtInterval(r *RegalChain ,n time.Duration) {
 	}
 }
 
-func (r *RegalChain) StoreValidBlock(b *Block) error {
+func (r *RegalChain) StoreValidBlock(bs bserv.BlockService, b *Block) (cid.Cid, error)  {
 
-	StoreBlock(r.NetworkType, *b)
-	return nil
+
+	nd, err := cbor.WrapObject(b, multihash.BLAKE2B_MIN+31, 32)
+	if err != nil {
+		return cid.Cid{}, err
+	}
+
+	if err := bs.AddBlock(nd); err != nil {
+		return cid.Cid{}, err
+	}
+
+	return nd.Cid(), nil
 
 }
 
@@ -165,18 +207,20 @@ func (r *RegalChain) GetTotalBlocks() {
 
 }
 
-func (r *RegalChain) NewGenesis() {
+func (r *RegalChain) NewGenesis() *Block {
 	genesis := new(GenesisBlock)
 	g := genesis.Create(r)
 	r.Blocks = make([]*Block, 0)
 
-	r.Blocks = append(r.Blocks, g.b)
-	r.Genesis = g.b.Hash
+	_, _ = r.StoreValidBlock(r.ChainFetcher, g.B)
+	r.Genesis = g.B.Hash
 
 	IOF := new(IO)
-	genBytes, _ := json.Marshal(g.b)
+	genBytes, _ := json.Marshal(g.B)
 
 	_ = IOF.WriteToDisk(genBytes, "data/chain/"+r.NetworkType+"/genesis.dat")
+
+	return g.B
 
 }
 

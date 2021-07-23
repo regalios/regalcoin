@@ -7,25 +7,19 @@
 
 > signed records for use with routing systems
 
-## Documentation
+## Documenation
 
 See https://godoc.org/github.com/libp2p/go-libp2p-record.
-
-## Testing
-
-This package has some tests that rely on generating weak RSA keys (for speed).
-In order to successfully run the tests, one must set the environment variable,
-`LIBP2P_ALLOW_WEAK_RSA_KEYS` to any non-empty value, such as `1`.
 
 ## Contribute
 
 Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs/go-key/issues)!
 
-This repository falls under the libp2p [Code of Conduct](https://github.com/libp2p/community/blob/master/code-of-conduct.md).
+This repository falls under the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
 
-### Want to hack on libp2p?
+### Want to hack on IPFS?
 
-[![](https://cdn.rawgit.com/libp2p/community/master/img/contribute.gif)](https://github.com/libp2p/community/blob/master/CONTRIBUTE.md)
+[![](https://cdn.rawgit.com/jbenet/contribute-ipfs-gif/master/img/contribute.gif)](https://github.com/ipfs/community/blob/master/contributing.md)
 
 ## License
 

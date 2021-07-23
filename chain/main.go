@@ -16,12 +16,15 @@ limitations under the License.
 package main
 
 import (
-	"github.com/regalios/regalcoin/interfaces"
+	"context"
+	"github.com/regalios/regalcoin/network"
 )
 
 func main() {
 
-interfaces.NewChain("local", uint32(0))
+	ctx := context.Background()
+	network.CreateNode(ctx)
+
 
 
 

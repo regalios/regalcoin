@@ -6,7 +6,7 @@ type Coin struct {
 	Signature []byte
 	Coinbase int
 	History coinHistory
-	TxOut
+
 }
 
 type coinHistory struct {
